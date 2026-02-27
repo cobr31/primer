@@ -205,7 +205,7 @@ if (firstName == "Adam") {
 } else if (firstName == "Jacqui") {
     console.log("first name is Jacqui");
 } else {
-    console.log("first name is neither Adam or Jacqui");
+    console.log("first name is neither Adam nor Jacqui");
 }
 
 switch (firstName) {
@@ -216,7 +216,7 @@ switch (firstName) {
         console.log("first name is Jacqui");
         break;
     default:
-        console.log("first name is neither Adam or Jacqui");
+        console.log("first name is neither Adam nor Jacqui");
         break;
 }
 */
@@ -336,11 +336,42 @@ console.log(`Result 3: ${coalesced3} Type: ${typeof (coalesced3)}`);
 // null or undefined.
 
 // Listing 3.32 - Guarding against null or undefined values in .ts files.
-let count: number | undefined | null = 100;
+/*let count: number | undefined | null = 100;
 if (count != null && count != undefined) {
     let result1: string = count.toFixed(2);
     console.log(`Result 1: ${result1}`);
+}*/
+
+// Optional chaining operator (?) simplifies the guarding process.
+
+// Listing 3.33: Using the optional chaining operator.
+/*
+let count: number | undefined | null = 100;
+if (count != null && count != undefined) {
+    let result1: string = count.toFixed(2);
+    console.log(`Result 1: ${result1} Type: ${typeof (result1)}`);
 }
+
+let result2: string | undefined = count?.toFixed(2);
+console.log(`Result 2: ${result2} Type: ${typeof (result2)}`);
+*/
+
+
+// Defining and using functions.  If a function defines parameters,
+// then TypeScript requires type annotations, TypeScript will allow
+// functions to be invoked only when the number of arguments
+// matches the number of parameters.
+
+// Listing 3.34: - Defining a function in the index.ts file.
+function writeValue(val: string | null) {
+    console.log(`Value: ${val ?? "Fallback value"} Type: ${typeof (val)}`);
+}
+
+writeValue("London");
+writeValue(null);
+writeValue("Merton");
+
+
 
 
 
