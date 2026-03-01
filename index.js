@@ -305,9 +305,44 @@ console.log(`Result 2: ${result2} Type: ${typeof (result2)}`);
 // functions to be invoked only when the number of arguments
 // matches the number of parameters.
 // Listing 3.34: - Defining a function in the index.ts file.
-function writeValue(val) {
+/*function writeValue(val: string | null) {
     console.log(`Value: ${val ?? "Fallback value"} Type: ${typeof (val)}`);
 }
+
 writeValue("London");
 writeValue(null);
 writeValue("Merton");
+*/
+// Defining optional parameters in ts,
+// the ? character is used to define an optional parameter.
+// Listing 3.35 - Defining an optional parameter.
+/*
+function writeValue(val?: string)  {
+    console.log(`Value: ${val ?? "Fallback value"}`);
+}
+
+writeValue("London");
+writeValue();
+*/
+// Defining the default parameter values.
+// Can be useful to avoid dealing with undefined values as the function is invoked without an argument.
+// Listing 3.36 - Defining a default parameter value.
+/*
+function writeValue(val: string = "default value") {
+    console.log(`Value: ${val}`);
+}
+
+writeValue("London");
+writeValue();
+*/
+// Rest parameters are used to include additional arguments when a function is invoked.
+// Listing 3.37 - Using a rest parameter.
+/*
+function writeValue(val: string,...extraInfo: string[]) {
+    console.log(`Value: ${val}, Extras: ${extraInfo}`);
+}
+
+writeValue("London", "Raining", "Cold");
+writeValue("Paris", "Sunny");
+writeValue("New York");
+*/
