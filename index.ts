@@ -723,8 +723,9 @@ printDetails(boots);
 
 
 // Adding Methods to a Class.
+// Method gains access to the  properties through the this keyword.
 
-// Defining a method....
+// Listing 3.55 - Defining method in a class
 class Product {
 
     constructor(name: string, price: number, category?: string) {
@@ -750,6 +751,7 @@ class Product {
     let boots = new Product("Boots", 160, "Snow Gear");
     let clothes = new Product("Clothes", 300, "Snow Suit");
 
+// Invoking Methods through the object..
 hat.printDetails();
 boots.printDetails();
 clothes.printDetails();
