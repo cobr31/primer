@@ -37,6 +37,13 @@ console.log(`Result value: ${result}, Result type: ${typeof result}`);
 */
 
 
+// TypeScript compiler processes the index.ts file.
+// Listing 3.9 - using ts to express types
+/*
+ npm run use_ts
+ */
+
+
 // Listing 3.11 - Supporting multiple types with index.ts file.
 /*function sum(first: number, second: number) {
     if (typeof second == "string") {
@@ -412,6 +419,328 @@ writeValue("London", "Raining", "Cold");
 writeValue("Paris", "Sunny");
 writeValue("New York");
 */
+
+// Defining functions that returns results.
+// Declare the return data type with the return keyword.
+
+// Listing 3.38 - Returning function results in ts.
+/*function composeString(val: string) : string {
+    return `Composed string: ${val}`;
+}
+
+function writeValue(val?: string) {
+    console.log(composeString(val ?? "Fallback value"));
+}
+
+writeValue("London");
+writeValue();*/
+
+
+// Using functions as arguments to other functions...
+// Below writeCity function defines a parameter called f, which is a function that it invokes
+// to get the value to insert into the string it writes out.
+// TypeScript requires the function parameter to be described
+// so that the types of its parameters and results are declared
+
+// Listing 3.39 - Using a function as an argument to another function.
+/*function getUKCapital() : string {
+    return "London";
+}
+
+function writeCity(f: () => string) {
+    console.log(`City ${f()}`);
+}
+
+writeCity(getUKCapital);*/
+
+// Defining functions using the arrow syntax.
+
+// Listing 3.40 - Defining an arrow function.
+/*
+function getUKCapital() : string {
+    return "London";
+}
+
+function writeCity(f: () => string) {
+    console.log(`City: ${f()}`);
+}
+
+writeCity(getUKCapital);
+writeCity(() => "Paris");
+*/
+
+
+// Understanding value closure.
+// Functions can access values defined in the surrounding code.
+
+// Listing 3.41  Using a closure
+/*
+function getUKCapital() : string {
+    return "London";
+}
+
+function writeCity(f: () => string) {
+    console.log(`City: ${f()}`);
+}
+
+let myCity= "Rome";
+writeCity(getUKCapital);
+writeCity(() => "Paris");
+
+writeCity(() => myCity);
+*/
+
+
+// Working with arrays
+
+// Listing 3.42 - Creating and populating an array.
+/*
+let myArray = [];
+myArray[0] = "100";
+myArray[1] = "Phil";
+myArray[2] = true;
+
+console.log(myArray);
+*/
+
+// Listing 3.43 - Using a type annotation in the index.ts.
+/*
+let myArray: any[] = [];
+myArray[0] = 100;
+myArray[1] = "Adam";
+myArray[2] = true;
+
+console.log(myArray);
+*/
+
+// Listing 3.44 - Restricting array value types.
+/*
+let myArray: (number | string | boolean)[] = [];
+myArray[0] = 100;
+myArray[1] = "Adam";
+myArray[2] = true;
+
+console.log(myArray);
+*/
+
+// Listing 3.45 - Populate array in a single statement.
+/*let myArray: (number | string | boolean)[] = [100, "Adam", true];
+
+console.log(myArray)*/;
+
+// Listing 3.46 - Reading data from an array.
+
+/*
+let myArray: (number | string | boolean)[] = [100, "Adam", true];
+let val = myArray[0];
+
+console.log(`Value: ${val}`);
+*/
+
+
+// Listing 3.47 - Modifying contents of an array.
+/*
+let myArray: (number | string | boolean)[] = [100, "Adam", true];
+
+myArray[0] = "Tuesday";
+
+let val = myArray[0];
+console.log(`Value: ${val}`);
+*/
+
+
+// Enumerating the contents of an array.
+// Using a for loop or the forEach method.
+
+// Listing 3.48 - Enumerating the contents of an array.
+/*
+let myArray: (number | string | boolean)[] = [100, "Adam", true];
+
+for (let i = 0; i < myArray.length; i++) {
+    console.log("Index " + i + ": " + myArray[i]);
+}
+
+console.log("---");
+
+myArray.forEach((value, index) =>
+    console.log("Index " + index + ": " + value));
+*/
+
+// Using the spread operator to expand an array's contents that
+// can be used as function arguments or combined with other arrays.
+
+// Listing 3.49 - Expand an array's items, then combine them with another array.
+/*
+let myArray: (number | string | boolean)[] = [100, "Adam", true];
+// The spread operator is an ellipsis (...), this causes the array to be unpacked.
+let otherArray = [...myArray, 200, "Bob", false];
+
+    // for (let i = 0; i < myArray.length; i++) {
+    //     console.log("Index " + i + ": " + myArray[i]);
+    // }
+    //
+    // console.log("---")
+
+otherArray.forEach((value, index) =>
+    console.log("Index " + index + ": " + value));
+
+*/
+
+// Working with objects..
+// Object properties contain a name and value.
+
+// Listing 3.50 - Creating an object.
+/*
+   let hat = {
+        name: "Hat",
+        price: 100
+    };
+
+    let boots = {
+        name: "Boots",
+        price: 120
+    };
+
+    console.log(`Name: ${hat.name}, Price: ${hat.price}`);
+    console.log(`Name: ${boots.name}, Price: ${boots.price}`);
+ */
+
+// Understanding Literal Object Types..
+// If the TypeScript compiler encounters a literal object, it infers its type.
+// Using type annotations allows the shape of the object to described or as function parameters.
+
+// Listing 3.51 - Describing an object type.
+/*
+    let hat = {
+        name: "Hat",
+        price: 100
+    };
+
+    let boots = {
+        name: "Boots",
+        price: 500
+    };
+
+    function printDetails(product : { name: string, price: number }) {
+        console.log(`Name: ${product.name} Price: ${product.price}`);
+    }
+    printDetails(hat);
+    printDetails(boots);
+*/
+
+// Listing 3.52 - Adding a property.
+/*
+let hat = {
+    name: "Hat",
+    price: 100
+};
+
+let boots = {
+    name: "Boots",
+    price: 150,
+    category: "Snow Gear"
+};
+
+function printDetails(product : { name: string, price: number }) {
+    console.log(`Name: ${product.name} Price: ${product.price}`);
+}
+printDetails(hat);
+printDetails(boots);
+*/
+
+// Define Optional properties in a type annotation..
+// Can use a question mark to denote an optional property,
+// Means the property category type is string | undefined.
+
+// Listing 3.53 - Defining an optional property.
+
+/*
+let hat = {
+    name: "Hat",
+    price: 100
+};
+
+let boots = {
+    name: "Boots",
+    price: 150,
+    category: "Snow Gear"
+};
+
+function printDetails(product : { name: string, price: number, category?: string }) {
+    if (product.category != undefined) {
+        console.log(`Name: ${product.name}, Price: ${product.price}, ` + `Category: ${product.category}`);
+    } else {
+        console.log(`Name: ${product.name}, Price: ${ product.price}`);
+    }
+}
+
+printDetails(hat);
+printDetails(boots);
+*/
+
+
+// Defining Classes..
+// Classes are templates used to create objects.
+// Class keyword declares a class followed by the name of the class.
+
+// Constructor function invoked when a new object is created using the class,
+// define setup and populate data values.
+
+// Constructor (example below) uses parameters (name, price, category) to define the object properties,
+// which are used to assign values to those properties.
+
+// Listing 3.54 - Defining a class and using it to create objects.
+/*
+    class Product {
+        constructor(name: string, price: number, category?: string) {
+            this.name = name;
+            this.price = price;
+            this.category = category;
+        }
+        name: string
+        price: number
+        category?: string
+    }
+    // The new keyword uses the class to create an object,
+    // passing arguments to be used by the constructor function.
+    let hat = new Product("Hat", 100);
+
+    let boots = new Product("Boots", 100, "Snow Gear");
+
+    let clothes = new Product("Clothes", 300, "Snow Suit");
+
+    function printDetails(product : { name: string, price: number, category?: string }) {
+        if (product.category != undefined) {
+            console.log(`Name: ${product.name}, Price: ${product.price}, ` + `Category: ${product.category}`);
+        } else {
+            console.log(`Name: ${product.name}, Price: ${product.price}`);
+        }
+    }
+
+    printDetails(hat);
+    printDetails(boots);
+    printDetails(clothes);
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
