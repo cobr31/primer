@@ -615,3 +615,29 @@ printDetails(boots);
     printDetails(boots);
     printDetails(clothes);
 */
+// Adding Methods to a Class.
+// Defining a method....
+class Product {
+    constructor(name, price, category) {
+        this.name = name;
+        this.price = price;
+        this.category = category;
+    }
+    name;
+    price;
+    category;
+    printDetails() {
+        if (this.category != undefined) {
+            console.log(`Name: ${this.name}, Price: ${this.price}, ` + `Category: ${this.category}`);
+        }
+        else {
+            console.log(`Name: ${this.name}, Price: ${this.price}`);
+        }
+    }
+}
+let hat = new Product("Hat", 100);
+let boots = new Product("Boots", 160, "Snow Gear");
+let clothes = new Product("Clothes", 300, "Snow Suit");
+hat.printDetails();
+boots.printDetails();
+clothes.printDetails();

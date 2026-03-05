@@ -653,7 +653,6 @@ printDetails(boots);
 // Means the property category type is string | undefined.
 
 // Listing 3.53 - Defining an optional property.
-
 /*
 let hat = {
     name: "Hat",
@@ -721,6 +720,40 @@ printDetails(boots);
     printDetails(boots);
     printDetails(clothes);
 */
+
+
+// Adding Methods to a Class.
+
+// Defining a method....
+class Product {
+
+    constructor(name: string, price: number, category?: string) {
+        this.name = name;
+        this.price = price;
+        this.category = category;
+    }
+
+    name: string
+    price: number
+    category?: string
+
+    printDetails() {
+        if (this.category != undefined) {
+            console.log(`Name: ${this.name}, Price: ${this.price}, ` +  `Category: ${this.category}`);
+        } else {
+            console.log(`Name: ${this.name}, Price: ${this.price}`);
+        }
+    }
+}
+
+    let hat = new Product("Hat", 100);
+    let boots = new Product("Boots", 160, "Snow Gear");
+    let clothes = new Product("Clothes", 300, "Snow Suit");
+
+hat.printDetails();
+boots.printDetails();
+clothes.printDetails();
+
 
 
 
