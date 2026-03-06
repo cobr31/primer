@@ -618,18 +618,60 @@ printDetails(boots);
 // Adding Methods to a Class.
 // Method gains access to the  properties through the this keyword.
 // Listing 3.55 - Defining method in a class
+/*
 class Product {
-    constructor(name, price, category) {
+
+    constructor(name: string, price: number, category?: string) {
         this.name = name;
         this.price = price;
         this.category = category;
     }
+
+    name: string
+    price: number
+    category?: string
+
+    printDetails() {
+        if (this.category != undefined) {
+            console.log(`Name: ${this.name}, Price: ${this.price}, ` +  `Category: ${this.category}`);
+        } else {
+            console.log(`Name: ${this.name}, Price: ${this.price}`);
+        }
+    }
+}
+
+    let hat = new Product("Hat", 100);
+    let boots = new Product("Boots", 160, "Snow Gear");
+    let clothes = new Product("Clothes", 300, "Snow Suit");
+
+// Invoking Methods through the object.
+hat.printDetails();
+boots.printDetails();
+clothes.printDetails();
+*/
+// Access controls and simplified constructors
+// Simplifying the class using the public control keyword within
+// the constructor,  generates the constructor parameters.
+// Listing 3.56 - Simplifying the class with the public keyword.
+class Product {
     name;
     price;
     category;
+    constructor(name, price, category) {
+        this.name = name;
+        this.price = price;
+        this.category = category;
+        // this.name = name;
+        // this.price = price;
+        // this.category = category;
+    }
+    // name: string
+    // price: number
+    // category?: string
     printDetails() {
         if (this.category != undefined) {
-            console.log(`Name: ${this.name}, Price: ${this.price}, ` + `Category: ${this.category}`);
+            console.log(`Name: ${this.name}, Price: ${this.price}, `
+                + `Category: ${this.category}`);
         }
         else {
             console.log(`Name: ${this.name}, Price: ${this.price}`);
@@ -637,9 +679,6 @@ class Product {
     }
 }
 let hat = new Product("Hat", 100);
-let boots = new Product("Boots", 160, "Snow Gear");
-let clothes = new Product("Clothes", 300, "Snow Suit");
-// Invoking Methods through the object..
+let boots = new Product("Boots", 100, "Snow Gear");
 hat.printDetails();
 boots.printDetails();
-clothes.printDetails();
