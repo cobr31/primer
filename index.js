@@ -492,7 +492,7 @@ otherArray.forEach((value, index) =>
     console.log("Index " + index + ": " + value));
 
 */
-// Working with objects..
+// Working with objects.
 // Object properties contain a name and value.
 // Listing 3.50 - Creating an object.
 /*
@@ -509,7 +509,7 @@ otherArray.forEach((value, index) =>
     console.log(`Name: ${hat.name}, Price: ${hat.price}`);
     console.log(`Name: ${boots.name}, Price: ${boots.price}`);
  */
-// Understanding Literal Object Types..
+// Understanding Literal Object Types.
 // If the TypeScript compiler encounters a literal object, it infers its type.
 // Using type annotations allows the shape of the object to described or as function parameters.
 // Listing 3.51 - Describing an object type.
@@ -549,7 +549,7 @@ function printDetails(product : { name: string, price: number }) {
 printDetails(hat);
 printDetails(boots);
 */
-// Define Optional properties in a type annotation..
+// Define Optional properties in a type annotation.
 // Can use a question mark to denote an optional property,
 // Means the property category type is string | undefined.
 // Listing 3.53 - Defining an optional property.
@@ -576,7 +576,7 @@ function printDetails(product : { name: string, price: number, category?: string
 printDetails(hat);
 printDetails(boots);
 */
-// Defining Classes..
+// Defining Classes.
 // Classes are templates used to create objects.
 // Class keyword declares a class followed by the name of the class.
 // Constructor function invoked when a new object is created using the class,
@@ -616,7 +616,7 @@ printDetails(boots);
     printDetails(clothes);
 */
 // Adding Methods to a Class.
-// Method gains access to the  properties through the this keyword.
+// Method gains access to the  properties using the this keyword.
 // Listing 3.55 - Defining method in a class
 /*
 class Product {
@@ -653,32 +653,123 @@ clothes.printDetails();
 // Simplifying the class using the public control keyword within
 // the constructor,  generates the constructor parameters.
 // Listing 3.56 - Simplifying the class with the public keyword.
+/*
 class Product {
-    name;
-    price;
-    category;
-    constructor(name, price, category) {
-        this.name = name;
-        this.price = price;
-        this.category = category;
+
+    constructor(public name: string, public price: number, public category?: string) {
         // this.name = name;
         // this.price = price;
         // this.category = category;
     }
+
     // name: string
     // price: number
     // category?: string
+
     printDetails() {
         if (this.category != undefined) {
             console.log(`Name: ${this.name}, Price: ${this.price}, `
-                + `Category: ${this.category}`);
+            + `Category: ${this.category}`);
+        } else {
+            console.log(`Name: ${this.name}, Price: ${this.price}`);
         }
-        else {
+    }
+
+}
+
+let hat = new Product("Hat", 100);
+
+let boots = new Product("Boots", 100, "Snow Gear");
+
+hat.printDetails();
+boots.printDetails();
+*/
+// Inheriting behaviour from other classes.
+// The extends keyword is used to declare the class that will be inherited from,
+// known as the super-class or base class.
+// Listing 3.57 Using Class inheritance.
+/*
+class Product {
+
+    constructor(public name: string, public price: number, public category?: string) {
+    }
+
+    printDetails() {
+
+        if (this.category != undefined) {
+            console.log(`Name: ${this.name}, Price: ${this.price}, ` + `Category: ${this.category}`);
+        } else {
             console.log(`Name: ${this.name}, Price: ${this.price}`);
         }
     }
 }
-let hat = new Product("Hat", 100);
+
+class DiscountProduct extends Product {
+
+    constructor(name: string, price: number, private discount: number) {
+        super(name, price - discount);
+    }
+}
+
+let hat = new DiscountProduct("Hat", 100, 10);
+
 let boots = new Product("Boots", 100, "Snow Gear");
+
 hat.printDetails();
 boots.printDetails();
+*/
+// Checking object types.
+// Using an object value and the class keyword instanceof in the expression will then return true.
+// Listing 3.58 - Checking object type.
+/*
+class Product {
+    constructor(public name: string, public price: number, public category?: string) {
+    }
+    printDetails() {
+        if (this.category != undefined) {
+            console.log(`Name: ${this.name}, Price: ${this.price}, ` + `Category: ${this.category}`);
+        } else {
+            console.log(`Name: ${this.name}, Price: ${this.price}`);
+        }
+    }
+}
+
+class DiscountProduct extends Product {
+
+    constructor(name: string, price: number, private discount: number) {
+        super(name, price - discount);
+
+    }
+}
+
+let hat = new DiscountProduct("Hat", 100, 10);
+let boots = new Product("Boots", 100, "Snow Gear");
+
+console.log(`Hat is a Product? ${hat instanceof Product}`);
+console.log(`Hat is a DiscountProduct? ${hat instanceof DiscountProduct}`);
+console.log(`Boot is a Product? ${boots instanceof Product}`);
+console.log("Boots is a DiscountProduct? " + (boots instanceof DiscountProduct));
+*/
+// Creating and using modules
+// Files added to projects are modules and as dependencies are resolved and loaded at runtime.
+// See:  modules/name.ts
+// Listing 3.59 - The contents of the name.ts file in the module folder.
+// Listing 3.60 - The contents of weather.ts file in the modules folder.
+// Listing 3.61 - Importing the specific types with the index.js file.
+/*
+import { Name } from "./modules/name";
+import { WeatherLocation } from "./modules/weather";
+
+let name = new Name("Adam", "Freeman");
+let loc = new WeatherLocation("Sunny", "London");
+
+console.log(name.nameMessage);
+console.log(loc.weatherMessage);
+*/
+// Listing 3.62 - Contents of the index.ts file in modules/index.ts.
+// Listing 3.63 - Importing a module folder in the index.ts file.
+const modules_1 = require("./modules");
+let name = new modules_1.Name("Adam", "Freeman");
+let loc = new modules_1.WeatherLocation("raining", "London");
+console.log(name.nameMessage);
+console.log(loc.weatherMessage);
