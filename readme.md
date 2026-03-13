@@ -11,7 +11,7 @@ Chapter 3
 
 ## JavaScript and TypeScript Primer
 
-[Function in js](#Listing 3.7)
+[Function in js](index.ts/#functioninjs)
 
 [Checking types in js](#Listing 3.8)
 

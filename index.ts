@@ -1,4 +1,5 @@
-// ## Listing 3.7 - function in js
+// Listing 3.7
+// ## function in js
 /*
 function sum(first, second) {
 	return first + second;
