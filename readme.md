@@ -7,13 +7,13 @@ Notes from book:
 
 Book Author: Adam Freeman    
 
-[Readme](readme.md)
-
-[Projects](index.ts)
-
 Chapter 3 
 
 ## JavaScript and TypeScript Primer
+
+[Function in js](#Listing 3.7)
+
+[Checking types in js](#Listing 3.8)
 
 
 
