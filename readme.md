@@ -7,7 +7,9 @@ Notes from book:
 
 Book Author: Adam Freeman    
 
+[Readme](readme.md)
 
+[Projects](index.ts)
 
 Chapter 3 
 
@@ -17,3 +19,4 @@ Chapter 3
 
 
 Author: c. a. brown 
+
