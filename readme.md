@@ -17,17 +17,20 @@ Chapter 3
 
 [Using ts to express types](index.ts/#usingtstoexpresstypes)
 
-[Starting TypeScript tools](index.ts/StartingtheTypeScripttools)
+[Starting TypeScript tools](index.ts/#StartingtheTypeScripttools)
 
-[Supporting multiple types](index.ts/Supportingmultipletypeswithindex.tsfile)
+[Supporting multiple types](index.ts/#Supportingmultipletypeswithindex.tsfile)
 
-[Using a type union](index.ts/Usingatypeunioninindex.tsfile)
+[Using a type union](index.ts/#Usingatypeunioninindex.tsfile)
 
-[TS compiler response to a type mismatch](index.ts/TypeScriptcompilerresponsetoatypemismatch)
+[TS compiler response to a type mismatch](index.ts/#TypeScriptcompilerresponsetoatypemismatch)
 
-[Resolving ambiguity with the as keyword and any type](index.ts/Resolvingambiguitywiththeaskeywordandanytype)
+[Resolving ambiguity with the as keyword and any type](index.ts/#Resolvingambiguitywiththeaskeywordandanytype)
 
-[Defining variables with let, constants with const](index.ts/Definingvariableswithletandconstantswithconst)
+[Defining variables with let, constants with const](index.ts/#Definingvariableswithletandconstantswithconst)
+
+
+
 
 
 
