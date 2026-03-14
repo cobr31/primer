@@ -11,7 +11,8 @@ result = sum(10, "10");
 console.log(`Result value: ${result}, Result type: ${typeof result}`);
 */
 
-// Listing 3.8 - checking types in js
+// Listing 3.8
+// ## checking types in js
 /*function sum(first, second) {
 	if (typeof first == "number" && typeof second == "number") {
 		return first + second;
@@ -25,7 +26,8 @@ result = sum(10, "10");
 console.log(`Result value: ${result}, Result type: ${typeof result}`);
 */
 
-// Listing 3.9 - using ts to express types
+// Listing 3.9
+// ## using ts to express types
 /*
 function sum(first:number, second:number) {
     return first + second;
@@ -39,13 +41,15 @@ console.log(`Result value: ${result}, Result type: ${typeof result}`);
 
 
 // TypeScript compiler processes the index.ts file.
-// Listing 3.9 - using ts to express types
+// Listing 3.10
+// ## Starting the TypeScript tools
 /*
  npm run use_ts
  */
 
 
-// Listing 3.11 - Supporting multiple types with index.ts file.
+// Listing 3.11
+// ## Supporting multiple types with index.ts file.
 /*function sum(first: number, second: number) {
     if (typeof second == "string") {
         return first + Number.parseInt(second);
@@ -59,7 +63,8 @@ console.log(`Result value: ${result}, Result type: ${ typeof result}`);
 result = sum(10, 10);
 console.log(`Result value: ${result}, Result type: ${typeof result}`);*/
 
-// Listing 3.12 - Using a type union in index.ts file.
+// Listing 3.12
+// ## Using a type union in index.ts file.
 /*
 function sum(first: number, second: number | string) {
     if (typeof second == "string") {
@@ -77,7 +82,8 @@ console.log(`Result value: ${result}, Result type: ${typeof result}`);
 
 
 
-// Listing 3.13 - TypeScript compiler response to a type mismatch.
+// Listing 3.13
+// ## TypeScript compiler response to a type mismatch.
 /*
 function sum(first: number, second: number | string) {
     return first + second;
@@ -90,7 +96,8 @@ console.log(`Result value: ${result}, Result type: ${typeof result}`);
 */
 
 
-// 3.14 Resolving ambiguity with the as keyword and any type.
+// Listing 3.14
+// ## Resolving ambiguity with the as keyword and any type.
 /*
 function sum(first: number, second: number | string) {
     return first + (second as any);
@@ -105,7 +112,8 @@ console.log(`Result value: ${result}, Result type: ${typeof result}`);
 
 // Defining Variables and Constants
 
-// Listing 3.15  - Defining variables with let and constants with const.
+// Listing 3.15
+// ## Defining variables with let and constants with const.
 /* let condition = true;
 let person = "Bob";
 const age = 40;*/
